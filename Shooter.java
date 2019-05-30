@@ -1,4 +1,4 @@
-package plantsVsZombies;
+package newPlant;
 
 public abstract class Shooter extends Plant {
 

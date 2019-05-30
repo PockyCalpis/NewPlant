@@ -1,4 +1,4 @@
-package plant;
+package newPlant;
 
 public class Pea extends LivingBeing {
 	private int x, y;

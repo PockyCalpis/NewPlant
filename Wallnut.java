@@ -1,4 +1,4 @@
-package plant;
+package newPlant;
 
 public class Wallnut extends Plant{
 

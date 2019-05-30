@@ -1,4 +1,4 @@
-package plant;
+package newPlant;
 
 public class Plant extends LivingBeing {
 	private int cooldown, productionSpeed;

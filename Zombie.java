@@ -1,4 +1,4 @@
-package plant;
+package newPlant;
 
 public class Zombie extends LivingBeing{
 private int x, y, speed;

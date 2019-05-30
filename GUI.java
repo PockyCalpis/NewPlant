@@ -1,4 +1,4 @@
-package plantsVsZombies;
+package newPlant;
 
 import javax.swing.*;
 

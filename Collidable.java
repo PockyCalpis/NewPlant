@@ -1,4 +1,4 @@
-package plant;
+package newPlant;
 
 public interface Collidable {
 
