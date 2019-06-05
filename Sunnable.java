@@ -1,5 +1,5 @@
 package newPlant;
 
-public class Sunnable {
+public interface Sunnable {
 
 }

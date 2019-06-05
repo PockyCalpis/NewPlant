@@ -11,11 +11,12 @@ public class Pea extends LivingBeing {
 		this.isSnow = isSnow;
 	}
 	
-	public void damageZombie() {
+	public void damageZombie(Zombie zombie) {
 	}
 
-	public void slowZombie() {
-
+	public void slowZombie(Zombie zombie) {
+		zombie.setHp(zombie.getHp()-this.getAtk());
+		zombie.setSpeed(zombie.getSpeed()/2);
 	}
 
 	public int getX() {

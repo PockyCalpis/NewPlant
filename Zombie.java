@@ -25,6 +25,10 @@ private int x, y, speed;
 	public int getSpeed() {
 		return speed;
 	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
 	
 	public void eatPlant(Plant plant) {
 		plant.setHp(plant.getHp()-this.getAtk());
