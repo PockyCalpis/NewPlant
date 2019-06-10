@@ -9,7 +9,7 @@ public class Plant extends LivingBeing {
 		this.productionSpeed = productionSpeed;
 	}
 
-	public int getCD() {
+	public int getCoolDown() {
 		return getCooldown();
 	}
 

@@ -1,6 +1,6 @@
 package newPlant;
 
 public class PlantsVsZombies {
-    Gameboard gameboard = new Gameboard(); //arbitrary size
+    //Board board = new Board(); //arbitrary size
 
 }
