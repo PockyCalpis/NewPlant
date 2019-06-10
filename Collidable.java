@@ -6,5 +6,6 @@ public interface Collidable {
 
 	public void setBoundingBox(Rectangle box);
 	public Rectangle getBoundingBox();
-	public boolean isCollision (Rectangle other);
+	public boolean isCollision (Pea pea);
+	public boolean isCollision (Plant plant);
 }

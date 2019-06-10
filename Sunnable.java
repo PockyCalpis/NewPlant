@@ -1,5 +1,6 @@
 package newPlant;
 
-public class Sunnable {
+public interface Sunnable {
 
+	public void produceSun (Sun sun);
 }
