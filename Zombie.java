@@ -1,6 +1,8 @@
 package newPlant;
 
-public class Zombie extends LivingBeing{
+import java.awt.Rectangle;
+
+public class Zombie extends LivingBeing implements Collidable, Moveable{
 private int x, y, speed;
 
 	Zombie(int health, int atk, int x, int y, int speed) {
@@ -32,5 +34,34 @@ private int x, y, speed;
 	
 	public void eatPlant(Plant plant) {
 		plant.setHp(plant.getHp()-this.getAtk());
+	}
+
+	@Override
+	public void move() {
+		this.setX(x++);
+	}
+
+	@Override
+	public void setBoundingBox(Rectangle box) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Rectangle getBoundingBox() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isCollision(Pea pea) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCollision(Plant plant) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
