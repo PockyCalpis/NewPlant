@@ -1,24 +1,42 @@
 package newPlant;
 
 import javax.swing.JFrame;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+
+import unit4.ShapeGameTemplate.GameAreaPanel;
+import unit4.ShapeGameTemplate.MyKeyListener;
+
 import java.awt.Toolkit;
 import java.awt.Graphics;
 import java.awt.Color;
 
-public class Board extends JFrame implements Sunnable{
+public class Board extends JFrame{
 	private Plant[][] plantArray;
-	private Zombie[] zombieColumn;
+	private ArrayList<LivingBeing> movingObjects;
 	private LinkedList<Plant> team;
 	private int level;
+	boolean gameOver;
 	
 	Board() {
+		gameOver = false;
 		setPlantArray(new Plant[5][5]);
-		setZombieColumn(new Zombie[5]);
 		setLevel(1);
-		
+		movingObjects = new ArrayList(0);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+		gamePanel = new GameAreaPanel();
+		this.add(new GameAreaPanel());
+
+		MyKeyListener keyListener = new MyKeyListener();
+		this.addKeyListener(keyListener);
+
+		this.requestFocusInWindow(); 
+
+		this.setVisible(true);
+		while (gameOver!= true) {
+			
+		}
 	}
 
 	public Plant[][] getPlantArray() {
@@ -27,20 +45,6 @@ public class Board extends JFrame implements Sunnable{
 
 	public void setPlantArray(Plant[][] plantArray) {
 		this.plantArray = plantArray;
-	}
-
-	public Zombie[] getZombieColumn() {
-		return zombieColumn;
-	}
-
-	public void setZombieColumn(Zombie[] zombies) {
-		this.zombieColumn = zombies;
-	}
-
-
-	@Override
-	public void produceSun() {
-		Sun newSun = new Sun(200,0,0,0);	
 	}
 
 	public LinkedList<Plant> getTeam() {
@@ -65,17 +69,16 @@ public class Board extends JFrame implements Sunnable{
 
 			// move enemies
 			
-
 			// check for collision
 
-			// draw all squares
+			// draw all plants
 			g.setColor(Color.RED);
-			for(int i = 0; i < 5; i++) {
-				;
-
+			for(int i = 0; i < 4; i++) {
+				for(int j = 0; j < 4; j++) {
+					
+				}
 			}
-
-			// draw player circle
+			// draw player zombies
 			g.setColor(Color.BLUE);
 
 			// repaint
