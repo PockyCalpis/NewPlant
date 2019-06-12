@@ -3,6 +3,9 @@ package newPlant;
 import javax.swing.JFrame;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+
+import newPlant.GUI.GameAreaPanel;
+
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.Graphics;
@@ -15,6 +18,7 @@ public class Board extends JFrame {
 	private int level;
 	boolean gameOver;
 	static JFrame window;
+	JPanel gamePanel;
 
 	Board() {
 		gameOver = false;
@@ -23,11 +27,12 @@ public class Board extends JFrame {
 		movingObjects = new ArrayList(0);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-
+		
+		gamePanel = new GameAreaPanel();
+		this.add(new GameAreaPanel());
+		
 		MyMouseListener mouseListener = new MyMouseListener();
 		addMouseListener(mouseListener);
-
-		this.requestFocusInWindow();
 
 		this.setVisible(true);
 	}

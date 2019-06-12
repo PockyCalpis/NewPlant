@@ -1,6 +1,7 @@
 package newPlant;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 
@@ -8,37 +9,44 @@ import javax.swing.*;
 
 public class GUI extends JFrame{
 	JPanel gamePanel;
-
+	final int Maxx, Maxy;
+	Dimension screenSize;
+	JFrame frame;
+	
     GUI() {
-        JFrame frame = new JFrame("Plants vs Zombies");
+        screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        
+        Maxx = (int) screenSize.getWidth();
+        Maxy = (int) screenSize.getWidth();
+		
+        frame = new JFrame("Plants vs Zombies");
+        gamePanel = new JPanel();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        frame.setSize(screenSize);
         frame.setLayout(null);
         frame.setVisible(true);
-        gamePanel = new GameAreaPanel();
-		this.add(new GameAreaPanel());
-		
+        
     }
-        private class GameAreaPanel extends JPanel {
+        class GameAreaPanel extends JPanel {
     		public void paintComponent(Graphics g) {
     			super.paintComponent(g); // required
     			setDoubleBuffered(true);
 
-    			// move enemies
-    			
-
-    			// check for collision
-
-    			// draw all squares
-    			g.setColor(Color.RED);
-    			for(int i = 0; i < 5; i++) {
-    				g.fillRect((int)enemies[i].getX(),(int)enemies[i].getX(),(int)enemies[i].getHeight(),(int)enemies[i].getWidth());
-
+    			// draw plants
+    			g.setColor(Color.GREEN);
+    			for(int i = 0; i < 4; i++) {
+    				for(int j = 0; j < 4; j++) {
+    					g.drawOval(0, 0, 20, 20);
+    				}
     			}
 
-    			// draw player circle
-    			g.setColor(Color.BLUE);
-    			g.fillOval((int)player.getX(),(int)player.getY(), (int)player.getRadius(), (int)player.getRadius());
+    			//draws zombies 
+    			g.setColor(Color.BLACK);
+    			g.drawOval(0, 0, 30, 30);
+    			
+    			// draws peas
+    			g.setColor(Color.RED);
+    			g.drawRect(300,300, 40, 40);
 
     			// repaint
     			repaint();
