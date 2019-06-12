@@ -7,11 +7,10 @@ import java.awt.Toolkit;
 
 import javax.swing.*;
 
-public class GUI extends JFrame{
-	JPanel gamePanel;
+public class GUI extends JFrame {
+	GameAreaPanel gamePanel;
 	final int Maxx, Maxy;
 	Dimension screenSize;
-	JFrame frame;
 	
     GUI() {
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -19,37 +18,56 @@ public class GUI extends JFrame{
         Maxx = (int) screenSize.getWidth();
         Maxy = (int) screenSize.getWidth();
 		
-        frame = new JFrame("Plants vs Zombies");
-        gamePanel = new JPanel();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(screenSize);
-        frame.setLayout(null);
-        frame.setVisible(true);
+        //this = new JFrame("Plants vs Zombies");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(screenSize);
+        this.setLayout(null);
+        this.setVisible(true);
+        this.setFocusable(true);
+        this.requestFocusInWindow(true);
+        
+        gamePanel = new GameAreaPanel();
+
+        this.add(gamePanel);
+        this.revalidate();
+        Thread t = new Thread(new GameLoop());
+        t.start();
         
     }
-        class GameAreaPanel extends JPanel {
+    
+    private class GameLoop implements Runnable {
+    	public void run() {
+    		
+    	}
+    	
+    }
+       private class GameAreaPanel extends JPanel {
+        	GameAreaPanel() {
+        		this.setVisible(true);
+        		this.revalidate();
+        	}
+        	
     		public void paintComponent(Graphics g) {
     			super.paintComponent(g); // required
     			setDoubleBuffered(true);
-
+    			System.out.println("draw");
     			// draw plants
     			g.setColor(Color.GREEN);
     			for(int i = 0; i < 4; i++) {
     				for(int j = 0; j < 4; j++) {
-    					g.drawOval(0, 0, 20, 20);
+    					g.fillOval(0, 0, 1000, 1000);
     				}
     			}
-
     			//draws zombies 
     			g.setColor(Color.BLACK);
-    			g.drawOval(0, 0, 30, 30);
+    			g.fillOval(0, 0, 30, 30);
     			
     			// draws peas
     			g.setColor(Color.RED);
-    			g.drawRect(300,300, 40, 40);
+    			g.fillRect(300,300, 40, 40);
 
     			// repaint
-    			repaint();
+    			this.repaint();
     		}
     	}
     }
