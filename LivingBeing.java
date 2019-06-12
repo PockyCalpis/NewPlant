@@ -1,6 +1,6 @@
 package newPlant;
 
-public class LivingBeing {
+public class LivingBeing implements Collidable{
 	private int health, atk;
 
 	LivingBeing(int health, int atk) {

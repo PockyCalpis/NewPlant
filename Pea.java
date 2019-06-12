@@ -1,6 +1,6 @@
 package newPlant;
 
-public class Pea extends LivingBeing {
+public class Pea extends LivingBeing implements Moveable{
 	private int x, y;
 	boolean isSnow;
 
@@ -33,5 +33,10 @@ public class Pea extends LivingBeing {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	@Override
+	public void move() {
+	setX(getX()+10);
 	}
 }
