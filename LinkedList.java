@@ -2,30 +2,52 @@ package newPlant;
 
 /**
  * LinkedList
- * @version 1.5
- * @author Samyar Vahid
- * @date May 9
  * Generic LinkedList class which can contain some data.
- * Will be used to store riders in a carpooling software
+ * Will be used to store plants and zombies
+ * @version 1.6
+ * @author Samyar Vahid
  */
 
 class LinkedList<T> {
-    public Node<T> head;
-    public Node<T> tail;
+    private Node<T> head;
+    private Node<T> tail;
 
     //Getters/Setters
+
+    /**
+     * gets head node
+     * @return returns head node
+     */
+
     public Node<T> getHead() {
         return head;
     }
+
+    /**
+     * sets head node
+     * @param t t of type T, generic item to be set as head
+     */
+
     public void setHead(T t){
         Node<T> current = new Node<T>(null, t);
         current.setNext(head);
         head = current;
     }
 
+    /**
+     * gets tail node
+     * @return returns tail node
+     */
+
     public Node<T> getTail() {
         return tail;
     }
+
+    /**
+     * sets tail node
+     * @param t t of type T, generic item to be set as tail
+     */
+
     public void setTail(T t){
         Node<T> current = head;
         while (current.getNext() != null) {
@@ -35,6 +57,12 @@ class LinkedList<T> {
     }
 
     //Main Functions
+
+    /**
+     * adds item t to list
+     * @param t generic replacement for any type object
+     */
+
     public void add(T t){
         Node<T> current = head;
 
@@ -48,12 +76,16 @@ class LinkedList<T> {
         }
     }
 
+    /**
+     * removes item t from list, iterates through list to find correct item
+     * @param t item to be removed, generic
+     */
+
     public void remove(T t) {
         Node<T> current = head;
 
         if (head.getItem() == t) {
             head = head.getNext();
-            return;
         } else {
             while (current.getItem() != t ) {
                 current = current.getNext();
@@ -62,6 +94,12 @@ class LinkedList<T> {
             current.getNext().setPrev(current.getPrev());
         }
     }
+
+    /**
+     * inserts item t at index index
+     * @param t     generic T item to be inserted
+     * @param index int showing where item is to be inserted
+     */
 
     public void insert(T t, int index) {
         Node<T> current = head;
@@ -81,6 +119,12 @@ class LinkedList<T> {
         current.setNext(newNode);
     }
 
+    /**
+     * checks whether list contains item t
+     * @param  t generic T item to be checked
+     * @return   returns boolean true/false depending on result of check
+     */
+
     public boolean contains(T t) {
         boolean contains = false;
         Node<T> current = head;
@@ -95,9 +139,14 @@ class LinkedList<T> {
                 current = current.getNext();
             }
         }
-        
+
         return contains;
     }
+
+    /**
+     * gets size of whole LinkedList
+     * @return returns int of list length
+     */
 
     public int getSize() {
         int counter = 0;
@@ -107,8 +156,14 @@ class LinkedList<T> {
             counter++;
             current = current.getNext();
         }
-    return counter;
+        return counter;
     }
+
+    /**
+     * gets item at index
+     * @param  index int at which to get item
+     * @return       generic T item
+     */
 
     public T get(int index) {
         int counter = 0;
@@ -120,6 +175,12 @@ class LinkedList<T> {
         }
         return current.getItem();
     }
+
+    /**
+     * iterates through list to find same object
+     * @param  t T object to be found
+     * @return   returns T object corresponding to search
+     */
 
     public T get(T t) {
         Node<T>  current = head;

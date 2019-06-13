@@ -7,11 +7,21 @@ import java.awt.Toolkit;
 
 import javax.swing.*;
 
+/**
+ * GUI
+ * @version 1.0
+ * @author Phoebe + Samyar
+ * Custom JFrame class
+ */
+
 public class GUI extends JFrame {
 	GameAreaPanel gamePanel;
 	final int Maxx, Maxy;
 	Dimension screenSize;
 
+	/**
+	 * Constructor for GUI
+	 */
 	GUI() {
 		super("Plants vs Zombies");
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,6 +43,12 @@ public class GUI extends JFrame {
 
 	}
 
+	/**
+	 * GameAreaPanel
+	 * @version 1.0
+	 * @author Phoebe
+	 * custom JPanel
+	 */
 	private class GameAreaPanel extends JPanel {
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g); // required

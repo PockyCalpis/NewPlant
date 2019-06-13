@@ -1,7 +1,19 @@
 package newPlant;
 
+/**
+ * PlantsVsZombies
+ * @version 1.0
+ * @author Phoebe
+ * Runs program
+ */
+
 public class PlantsVsZombies {
-    //Board board = new Board(); //arbitrary size
+
+	/**
+	 * Main method
+	 * Loads GUI and windows
+	 * @param args unused
+	 */
 	public static void main(String[] args) {
 		new GUI();
 	}

@@ -2,17 +2,16 @@ package newPlant;
 
 /**
  * Node
- * @version 1.0
- * @author Samyar Vahid
- * @date May 8
  * Node to be used within LinkedList
+ * @version 1.1
+ * @author Samyar Vahid
  */
 
 class Node<T> {
 
-    Node<T> next;
-    Node<T> prev; 
-    T item;
+    private Node<T> next;
+    private Node<T> prev;
+    private T item;
 
     Node(Node<T> prev, T item) {
         this.prev = prev;
@@ -21,25 +20,58 @@ class Node<T> {
     }
 
     //Getters/Setters
-    public Node<T> getNext(){
+
+    /**
+     * gets next node
+     * @return returns next node
+     */
+
+    Node<T> getNext(){
         return next;
     }
-    public void setNext(Node<T> node){
+
+    /**
+     * sets next node
+     * @param node node that will be set
+     */
+
+    void setNext(Node<T> node){
         this.next = node;
     }
 
-    public Node<T> getPrev(){
+    /**
+     * gets previous node
+     * @return returns previous node
+     */
+
+    Node<T> getPrev(){
         return prev;
     }
-    public void setPrev(Node<T> node){
-    this.prev = node;
+
+    /**
+     * sets previous node
+     * @param node node that will be set
+     */
+
+    void setPrev(Node<T> node){
+        this.prev = node;
     }
 
-    public T getItem() {
+    /**
+     * gets item, generic
+     * @return returns item T
+     */
+
+    T getItem() {
         return item;
     }
 
-    public boolean hasNext() {
+    /**
+     * checks whether current node has a node after it
+     * @return returns boolean true or false
+     */
+
+    boolean hasNext() {
         if (next == null) {
             return false;
         } else {
