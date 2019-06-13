@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-import newPlant.GUI.GameAreaPanel;
-
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.Graphics;
@@ -28,11 +26,8 @@ public class Board extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		
-		gamePanel = new GameAreaPanel();
-		this.add(new GameAreaPanel());
-		
 		MyMouseListener mouseListener = new MyMouseListener();
-		addMouseListener(mouseListener);
+		//addMouseListener(mouseListener);
 
 		this.setVisible(true);
 	}
